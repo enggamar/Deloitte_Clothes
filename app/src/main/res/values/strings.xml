@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Clothes Shop</string>
+    <string name="no_internet">No internet</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="retry">Retry</string>
+    <string name="price">Price</string>
+    <string name="buy">BUY</string>
+    <string name="add_to_cart">ADD TO CART</string>
+    <string name="available">Available :</string>
+    <string name="product_description">Product Description</string>
+    <string name="note">Importent Note:-</string>
+    <string name="tax_applicable_tax_on_the_basis_of_exact_location_discount_will_be_charged_at_the_time_of_checkout_100_original_products_free_delivery_on_order_above_rs_1199_cash_on_delivery_might_be_available_easy_30_days_returns_and_exchanges_try_buy_might_be_available">Tax: Applicable tax on the basis of exact location &amp; discount will be charged at the time of checkout\n\n100% Original Products \n\nFree Delivery \n\non order above $ 1199 \n\nCash on delivery might be available \n\nEasy 30 days returns and exchanges Try &amp; Buy might be available></string>
+    <string name="checkout">CHECKOUT</string>
+    <string name="check_delivery">Check Delivery</string>
+    <string name="enter_zip_code">ENTER ZIP CODE</string>
+    <string name="please_enter_zip_code_to_check_delivery_time_cash_card_on_delivery_availability"><![CDATA[Please enter ZIP code to check delivery time & Cash/Card on Delivery Availability]]></string>
+    <string name="out_of_stock">OUT OF STOCK</string>
+    <string name="exit_msg">Press once again to exit!</string>
+
+</resources>

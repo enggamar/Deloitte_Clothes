@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.deloitte.clothes_shop.model.ProductData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/White"
+        android:layout_height="match_parent">
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nested_scrol"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_45sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_342sdp"
+                    android:background="@android:color/transparent">
+
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/iv_product"
+                        android:src="@drawable/ic_women_footwear"
+                        android:layout_width="match_parent"
+                        android:scaleType="fitXY"
+                        android:layout_height="@dimen/_310sdp" />
+
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/iv_wishlist"
+                        android:layout_width="@dimen/_48sdp"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:background="@drawable/circle_with_shadow"
+                        android:padding="@dimen/_12sdp"
+                        android:src="@drawable/ic_unselected_wishlist" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8sdp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_product_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/galano_grotesque_semi_bold"
+                        android:text="@{viewModel.productName}"
+                        tools:text="Men's Category"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_15ssp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_product_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_product_name"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:fontFamily="@font/galano_grotesque_regular"
+                        android:textColor="@color/DarkGray"
+                        android:text="@{viewModel.productCategory}"
+                        tools:text="New Category Texting"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ll_price"
+                        android:layout_below="@+id/tv_product_category"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/tv_product_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/galano_grotesque_medium"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_13ssp"
+                            tools:text="Price $299"
+                            app:bindPrice="@{viewModel.price}" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/tv_product_old_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:fontFamily="@font/galano_grotesque_medium"
+                            android:textColor="@color/DarkGray"
+                            android:textSize="@dimen/_13ssp"
+                            android:visibility="gone"
+                            tools:text="$299"
+                            app:bindOldPrice="@{viewModel.oldPrice}" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_available"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/ll_price"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/galano_grotesque_medium"
+                            android:textColor="@color/Black"
+                            android:textSize="@dimen/_13ssp"
+                            android:visibility="visible"
+                            android:text="@string/available" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/tv_Avalibility"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/galano_grotesque_medium"
+                            android:textColor="@color/Black"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_13ssp"
+                            bindStock="@{viewModel.stock}"
+                            android:visibility="visible"
+                            tools:text="5" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ll_zip_code_check"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_below="@id/ll_available"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/check_delivery"
+                            android:textSize="@dimen/_13sdp"
+                            android:textColor="@color/DarkGray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.AppCompatEditText
+                                android:layout_width="@dimen/_170sdp"
+                                android:layout_height="wrap_content"
+                                android:drawableEnd="@drawable/tick"
+                                android:maxLength="5"
+                                android:inputType="number"
+                                android:fontFamily="@font/galano_grotesque_medium"
+                                android:background="@drawable/round_border_color_primary"
+                                android:padding="@dimen/_8sdp"
+                                android:hint="@string/enter_zip_code" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/_11ssp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:text="@string/please_enter_zip_code_to_check_delivery_time_cash_card_on_delivery_availability"
+                                android:fontFamily="@font/galano_grotesque_regular"
+                                android:textColor="@color/DarkGray" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_text_description_leble"
+                        android:text="@string/note"
+                        android:layout_below="@+id/ll_zip_code_check"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/galano_grotesque_medium"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tax_applicable_tax_on_the_basis_of_exact_location_discount_will_be_charged_at_the_time_of_checkout_100_original_products_free_delivery_on_order_above_rs_1199_cash_on_delivery_might_be_available_easy_30_days_returns_and_exchanges_try_buy_might_be_available"
+                        android:layout_below="@+id/tv_text_description_leble"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/galano_grotesque_regular"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_13sdp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_add_to_cart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/round_border_color_primary"
+                android:fontFamily="@font/galano_grotesque_semi_bold"
+                android:gravity="center"
+                android:text="@string/add_to_cart"
+
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14sdp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_checkout"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corner_filled"
+                android:fontFamily="@font/galano_grotesque_semi_bold"
+                android:gravity="center"
+                android:text="@string/checkout"
+                android:textColor="@color/White"
+                android:textSize="@dimen/_14sdp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

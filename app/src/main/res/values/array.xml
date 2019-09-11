@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category_name">
+
+        <item>"Women's Footwear"</item>
+        <item>"Men's Footwear"</item>
+        <item>"Women's Casualwear"</item>
+        <item>"Men's Casualwear"</item>
+        <item>"Women's Formalwear"</item>
+        <item>"Men's Formalwear"</item>
+
+    </string-array>
+
+    <string-array name="category_icon">
+        <item>@drawable/ic_women_footwear</item>
+        <item>@drawable/ic_mens_footwear</item>
+        <item>@drawable/ic_women_causal_wear</item>
+        <item>@drawable/ic_mens_causal_wear</item>
+        <item>@drawable/ic_women_formal</item>
+        <item>@drawable/ic_mens_formal</item>
+
+    </string-array>
+
+</resources>
