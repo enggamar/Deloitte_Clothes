@@ -4,6 +4,7 @@ package com.deloitte.clothes_shop.data.api;
 import android.support.annotation.NonNull;
 
 import com.deloitte.clothes_shop.BuildConfig;
+import com.deloitte.clothes_shop.model.AddCartResponse;
 import com.deloitte.clothes_shop.model.ProductData;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -93,6 +95,13 @@ public class ApiManager {
 
     public Call<ProductData> getProductDetails(String productId) {
         return apiClient.getProductDetails(productId);
+    }
+
+    public Call<AddCartResponse> addItemToCart(String productId){
+        return apiClient.addItemToCart(productId);
+    }
+    public Call<ResponseBody> removeItemFromCart(String cardId){
+        return apiClient.deleteItemCart(cardId);
     }
 }
 

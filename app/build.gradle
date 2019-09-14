@@ -9,6 +9,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //javaComplieOptions SECTION
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":"$projectDir/schemas".toString()]
+            }
+        }
     }
     buildTypes {
         release {
@@ -19,10 +25,12 @@ android {
     dataBinding {
         enabled = true
     }
+
 }
 
 dependencies {
     def lifecycle_version = "1.1.1"
+    def room_version = "1.1.1"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0-rc01'
@@ -46,7 +54,10 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
 
     //Response Logging
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
 
+    //room
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
 
 }

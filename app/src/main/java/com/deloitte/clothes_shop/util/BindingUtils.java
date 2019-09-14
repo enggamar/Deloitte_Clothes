@@ -63,4 +63,21 @@ public class BindingUtils {
             view.setTextColor(view.getContext().getResources().getColor(R.color.red));
         }
     }
+
+    @BindingAdapter("checkOutOfStock")
+    public static void checkOutOfStock(AppCompatTextView view, int stock) {
+        if (stock > 0) {
+            view.setTextColor(view.getContext().getResources().getColor(R.color.colorPrimary));
+            view.setBackgroundDrawable(view.getContext().getResources().getDrawable(R.drawable.round_border_color_primary));
+            view.setText(view.getContext().getResources().getString(R.string.add_to_cart));
+            view.setEnabled(true);
+        } else {
+            view.setText(view.getContext().getString(R.string.out_of_stock));
+            view.setTextColor(view.getContext().getResources().getColor(R.color.DarkGray));
+            view.setBackgroundDrawable(view.getContext().getResources().getDrawable(R.drawable.round_border_gray));
+            view.setEnabled(false);
+        }
+    }
+
 }
+

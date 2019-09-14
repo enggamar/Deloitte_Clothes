@@ -10,19 +10,13 @@
         android:gravity="center_vertical"
         android:paddingEnd="@dimen/_10sdp">
 
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:id="@+id/tv_title"
-            android:fontFamily="@font/galano_grotesque_semi_bold"
-            android:gravity="center_vertical"
-            android:maxLength="20"
-            android:ellipsize="end"
-            android:text="Category"
-            android:textColor="@color/White"
-            android:textSize="@dimen/_14ssp"
-            tools:text="Title" />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:padding="@dimen/_5sdp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back" />
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/iv_wishlist"
@@ -33,7 +27,6 @@
             android:padding="@dimen/_5sdp"
             android:src="@drawable/ic_wishlist"
             android:tint="@color/White" />
-
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/iv_cart"
             android:layout_width="@dimen/_36sdp"
@@ -43,6 +36,20 @@
             android:padding="@dimen/_5sdp"
             android:src="@drawable/ic_cart"
             app:tint="@color/White" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:fontFamily="@font/galano_grotesque_semi_bold"
+            android:gravity="center_vertical"
+            android:maxLength="20"
+            android:text="Category"
+            android:textColor="@color/White"
+            android:textSize="@dimen/_14ssp"
+            tools:text="Title" />
 
     </RelativeLayout>
 </layout>

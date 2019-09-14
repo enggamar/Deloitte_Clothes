@@ -1,15 +1,17 @@
 package com.deloitte.clothes_shop.ui.home;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.deloitte.clothes_shop.R;
 import com.deloitte.clothes_shop.base.BaseActivity;
 import com.deloitte.clothes_shop.constants.AppConstants;
 import com.deloitte.clothes_shop.databinding.ActivityMensWomenBinding;
 
-public class HomeActivity extends BaseActivity implements CategoryFragment.ICategoryHost, ProductListFragment.ProductListHost {
+public class HomeActivity extends BaseActivity implements CategoryFragment.ICategoryHost, ProductListFragment.ProductListHost, View.OnClickListener {
 
     private ActivityMensWomenBinding mBinding;
     private long back_pressed;
@@ -24,15 +26,24 @@ public class HomeActivity extends BaseActivity implements CategoryFragment.ICate
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_mens_women);
+        initView();
         addInitialFragment();
     }
 
+    private void initView() {
+        mBinding.includeHeader.ivBack.setOnClickListener(this);
+        mBinding.includeHeader.ivCart.setOnClickListener(this);
+        mBinding.includeHeader.ivWishlist.setOnClickListener(this);
+    }
+
     private void addInitialFragment() {
+        mBinding.includeHeader.ivBack.setVisibility(View.GONE);
         addFragmentWithBackstack(R.id.fl_container, new CategoryFragment(), CategoryFragment.class.getSimpleName());
     }
 
     @Override
     public void openProductList(String categoryId) {
+        mBinding.includeHeader.ivBack.setVisibility(View.VISIBLE);
         Bundle bundle = new Bundle();
         changeHeaderTitle(categoryId);
         bundle.putString(AppConstants.BUNDLE_DATA, categoryId);
@@ -43,6 +54,7 @@ public class HomeActivity extends BaseActivity implements CategoryFragment.ICate
 
     @Override
     public void openProductDetails(String productId, String productName) {
+        mBinding.includeHeader.ivBack.setVisibility(View.VISIBLE);
         changeHeaderTitle(productName);
         Bundle bundle = new Bundle();
         bundle.putString(AppConstants.BUNDLE_DATA, productId);
@@ -69,5 +81,24 @@ public class HomeActivity extends BaseActivity implements CategoryFragment.ICate
             back_pressed = System.currentTimeMillis();
         }
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.iv_back:
+                if ((getCurrentFragment() instanceof ProductListFragment)) {
+                    mBinding.includeHeader.ivBack.setVisibility(View.GONE);
+                    changeHeaderTitle(getResources().getString(R.string.category));
+                }
+                onBackPressed();
+                break;
+            case R.id.iv_cart:
+                startActivity(new Intent(HomeActivity.this, CartActivity.class));
+                break;
+            case R.id.iv_wishlist:
+                startActivity(new Intent(HomeActivity.this, WishListActivity.class));
+                break;
+        }
     }
 }

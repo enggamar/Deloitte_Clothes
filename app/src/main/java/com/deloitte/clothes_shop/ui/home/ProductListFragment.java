@@ -16,6 +16,8 @@ import com.deloitte.clothes_shop.R;
 import com.deloitte.clothes_shop.adapters.ProductListAdapter;
 import com.deloitte.clothes_shop.base.BaseFragment;
 import com.deloitte.clothes_shop.constants.AppConstants;
+import com.deloitte.clothes_shop.database.DBHelper;
+import com.deloitte.clothes_shop.database.WishListTable;
 import com.deloitte.clothes_shop.databinding.FragmentCategoryBinding;
 import com.deloitte.clothes_shop.model.ProductData;
 
@@ -102,11 +104,39 @@ public class ProductListFragment extends BaseFragment implements View.OnClickLis
 
     private void wishlistClicked(int postion) {
         if (mList.get(postion).isSelected()) {
+            removeWishListFormDB(postion);
             mList.get(postion).setSelected(false);
         } else {
+            addWishListItemTODBpostion(postion);
             mList.get(postion).setSelected(true);
         }
         adapter.notifyItemChanged(postion);
+    }
+
+    //Remove Wishlist from DB
+    private void removeWishListFormDB(int postion) {
+        WishListTable wishListTable = wishListModel(postion);
+        DBHelper.getDbHelper(getActivity()).queryHelperDao().delete(wishListTable);
+
+    }
+
+    //Insert wishlist into DB
+    private void addWishListItemTODBpostion(int postion) {
+        WishListTable wishListTable = wishListModel(postion);
+        DBHelper.getDbHelper(getActivity()).queryHelperDao().insertAll(wishListTable);
+    }
+
+    //create wishlist model
+    private WishListTable wishListModel(int postion) {
+        WishListTable wishListTable = new WishListTable();
+        wishListTable.setProductName(mList.get(postion).getProductName());
+        wishListTable.setProductCategory(mList.get(postion).getProductCategory());
+        wishListTable.setPrice(mList.get(postion).getPrice());
+        wishListTable.setProductId(mList.get(postion).getProductId());
+        wishListTable.setOldPrice(mList.get(postion).getOldPrice());
+        wishListTable.setStock(mList.get(postion).getStock());
+
+        return wishListTable;
     }
 
     @Override

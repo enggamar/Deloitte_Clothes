@@ -16,5 +16,8 @@
     <string name="please_enter_zip_code_to_check_delivery_time_cash_card_on_delivery_availability"><![CDATA[Please enter ZIP code to check delivery time & Cash/Card on Delivery Availability]]></string>
     <string name="out_of_stock">OUT OF STOCK</string>
     <string name="exit_msg">Press once again to exit!</string>
+    <string name="category">Category</string>
+    <string name="cart">Cart</string>
+    <string name="wishlist">Wishlist</string>
 
 </resources>

@@ -5,10 +5,13 @@ import android.arch.lifecycle.ViewModel;
 
 import com.deloitte.clothes_shop.base.RichMediatorLiveData;
 import com.deloitte.clothes_shop.data.api.ApiInterface;
+import com.deloitte.clothes_shop.model.AddCartResponse;
 import com.deloitte.clothes_shop.model.FailureResponse;
 import com.deloitte.clothes_shop.model.ProductData;
 
 import java.util.List;
+
+import okhttp3.ResponseBody;
 
 public class HomeViewModel extends ViewModel {
 
@@ -18,6 +21,8 @@ public class HomeViewModel extends ViewModel {
     private Observer<FailureResponse> mFailureObserver;
     private RichMediatorLiveData<List<ProductData>> mHomeLiveData;
     private RichMediatorLiveData<ProductData> mProductLiveData;
+    private RichMediatorLiveData<AddCartResponse> addCartLiveData;
+    private RichMediatorLiveData<ResponseBody> removeCartLiveData;
 
 
     //saving error & failure observers instance
@@ -59,6 +64,32 @@ public class HomeViewModel extends ViewModel {
                 }
             };
         }
+        if (addCartLiveData == null) {
+            addCartLiveData = new RichMediatorLiveData<AddCartResponse>() {
+                @Override
+                protected Observer<FailureResponse> getFailureObserver() {
+                    return mFailureObserver;
+                }
+
+                @Override
+                protected Observer<Throwable> getErrorObserver() {
+                    return mErrorObserver;
+                }
+            };
+        }
+        if (removeCartLiveData == null) {
+            removeCartLiveData = new RichMediatorLiveData<ResponseBody>() {
+                @Override
+                protected Observer<FailureResponse> getFailureObserver() {
+                    return mFailureObserver;
+                }
+
+                @Override
+                protected Observer<Throwable> getErrorObserver() {
+                    return mErrorObserver;
+                }
+            };
+        }
     }
 
     public void getProductList() {
@@ -71,12 +102,32 @@ public class HomeViewModel extends ViewModel {
         mHomeRepo.getProductDetails(mProductLiveData, ApiInterface.BASE_URL + "products/" + productId);
     }
 
+    public void addItemToCart(String productId) {
+        loading.onChanged(true);
+        mHomeRepo.addItemToCart(addCartLiveData, productId);
+
+    }
+
+    public void removeItemFromCart(String cardId) {
+        loading.onChanged(true);
+        mHomeRepo.removeItemToCart(removeCartLiveData, ApiInterface.BASE_URL + "cart/" + cardId);
+
+    }
+
     public RichMediatorLiveData<List<ProductData>> getmHomeLiveData() {
         return mHomeLiveData;
     }
 
     public RichMediatorLiveData<ProductData> getProductLiveData() {
         return mProductLiveData;
+    }
+
+    public RichMediatorLiveData<AddCartResponse> getAddCartLiveData() {
+        return addCartLiveData;
+    }
+
+    public RichMediatorLiveData<ResponseBody> getRemoveCartLiveData() {
+        return removeCartLiveData;
     }
 
 }

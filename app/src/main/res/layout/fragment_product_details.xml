@@ -51,7 +51,7 @@
                         android:layout_marginBottom="@dimen/_8sdp"
                         android:background="@drawable/circle_with_shadow"
                         android:padding="@dimen/_12sdp"
-                        android:src="@drawable/ic_unselected_wishlist" />
+                        android:src="@drawable/wishlist_selector" />
 
                 </RelativeLayout>
 
@@ -136,13 +136,13 @@
 
                         <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/tv_Avalibility"
+                            bindStock="@{viewModel.stock}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
                             android:fontFamily="@font/galano_grotesque_medium"
                             android:textColor="@color/Black"
-                            android:layout_marginStart="@dimen/_10sdp"
                             android:textSize="@dimen/_13ssp"
-                            bindStock="@{viewModel.stock}"
                             android:visibility="visible"
                             tools:text="5" />
 
@@ -236,7 +236,7 @@
                 android:fontFamily="@font/galano_grotesque_semi_bold"
                 android:gravity="center"
                 android:text="@string/add_to_cart"
-
+                app:checkOutOfStock="@{viewModel.stock}"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/_14sdp" />
 
