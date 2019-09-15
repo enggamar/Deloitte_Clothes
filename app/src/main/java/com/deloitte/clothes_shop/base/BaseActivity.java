@@ -153,39 +153,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
-    public void replaceFragment(int layoutResId, BaseFragment fragment, String tag) {
-        if (getSupportFragmentManager().findFragmentByTag(tag) == null)
-            getSupportFragmentManager().beginTransaction()
-
-                    .replace(layoutResId, fragment, tag)
-                    .commit();
-    }
-
-    public void replaceFragmentWithBackstack(int layoutResId, BaseFragment fragment, String tag) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(layoutResId, fragment, tag)
-                .addToBackStack(tag)
-                .commit();
-    }
-
-    public void replaceFragmentWithBackstackWithStateLoss(int layoutResId, BaseFragment fragment, String tag) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(layoutResId, fragment, tag)
-                .addToBackStack(tag)
-                .commitAllowingStateLoss();
-    }
-
-
     /**
      * This method is used to remove the view already present as a child in relative layout.
      */
     private void removeLayout() {
         if (baseContainer.getChildCount() >= 1)
             baseContainer.removeAllViews();
-    }
-
-    public void showToastLong(CharSequence message) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     public void showToastShort(CharSequence message) {

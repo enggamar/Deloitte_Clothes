@@ -80,9 +80,6 @@ public class BaseFragment extends Fragment {
         Log.e("onErrorOccurred: ", throwable.getMessage());
     }
 
-    public void showToastLong(CharSequence message) {
-        ((BaseActivity) Objects.requireNonNull(getActivity())).showToastLong(message);
-    }
 
     public void showToastShort(CharSequence message) {
         ((BaseActivity) Objects.requireNonNull(getActivity())).showToastShort(message);

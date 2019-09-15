@@ -71,6 +71,7 @@ public class WishListActivity extends BaseActivity implements View.OnClickListen
         mBinding.includeHeader.ivBack.setOnClickListener(this);
     }
 
+    //getting all Wishlisted item from DB
     private void getWishList() {
         mList = new ArrayList<>();
         mList.addAll(DBHelper.getDbHelper(this).queryHelperDao().getWishList());

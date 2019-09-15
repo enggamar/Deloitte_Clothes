@@ -72,6 +72,7 @@ public class ProductListFragment extends BaseFragment implements View.OnClickLis
         adapter.notifyDataSetChanged();
     }
 
+    // Setup recyclerview
     private void setupView() {
         mList = new ArrayList<>();
         GridLayoutManager layoutManager = new GridLayoutManager(mActivity, 2);
@@ -98,6 +99,7 @@ public class ProductListFragment extends BaseFragment implements View.OnClickLis
 
     }
 
+    //open Product Details
     private void openProductDetails(int postion) {
         iProductListHost.openProductDetails(mList.get(postion).getProductId(), mList.get(postion).getProductName());
     }

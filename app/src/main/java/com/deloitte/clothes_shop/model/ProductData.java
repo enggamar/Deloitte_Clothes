@@ -5,10 +5,6 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Amar
- */
-
 public class ProductData implements Parcelable {
 
     @SerializedName("productId")

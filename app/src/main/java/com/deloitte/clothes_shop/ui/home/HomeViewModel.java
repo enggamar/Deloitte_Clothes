@@ -92,22 +92,26 @@ public class HomeViewModel extends ViewModel {
         }
     }
 
+    //This function is used for getting product list
     public void getProductList() {
         loading.onChanged(true);
         mHomeRepo.getReviewRating(mHomeLiveData);
     }
 
+    //This function is used for getting product Details
     public void getProductDetails(String productId) {
         loading.onChanged(true);
         mHomeRepo.getProductDetails(mProductLiveData, ApiInterface.BASE_URL + "products/" + productId);
     }
 
+    //This function is used for add product into cart
     public void addItemToCart(String productId) {
         loading.onChanged(true);
         mHomeRepo.addItemToCart(addCartLiveData, productId);
 
     }
 
+    //This function is used for remove product into cart
     public void removeItemFromCart(String cardId) {
         loading.onChanged(true);
         mHomeRepo.removeItemToCart(removeCartLiveData, ApiInterface.BASE_URL + "cart/" + cardId);

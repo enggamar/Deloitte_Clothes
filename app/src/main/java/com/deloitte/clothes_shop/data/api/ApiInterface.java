@@ -15,10 +15,6 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Url;
 
-/**
- * Created by appinventiv on 27/3/18.
- */
-
 public interface ApiInterface {
 
 
