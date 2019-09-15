@@ -11,7 +11,7 @@
 ## Note-
 1- All images are Dummy
 
-2- I have cover and completed all stories mentioned in task sheet.
+2- I have covered and completed all stories mentioned in task sheet.
 
 ## Splash Screen
 
