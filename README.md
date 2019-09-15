@@ -7,6 +7,9 @@
 
 ## APP Description
 
+## Note-
+1- All images are Dummy
+
 ## Splash Screen
 
 1-When Click on App Icon -> It will show first splash Screen 
