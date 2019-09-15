@@ -4,6 +4,7 @@
 ## MVVM with Live Data
 ## ROOM DB for Local Storage
 ## Retrofit for Network Call
+## DataBinding
 
 ## APP Description
 
