@@ -11,6 +11,8 @@
 ## Note-
 1- All images are Dummy
 
+2- I have cover and completed all stories mentioned in task sheet.
+
 ## Splash Screen
 
 1-When Click on App Icon -> It will show first splash Screen 
